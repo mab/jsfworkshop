@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:workshop="http://java.sun.com/jsf/composite/components">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+			
+			<h:outputText value="Example: Using custom components" />
+
+			<h:outputText value="Give your name and birthday please!" />
+
+			<h:form>
+				<workshop:input value="#{inputBean.name}" label="Name" />
+				<workshop:input value="#{inputBean.date}" label="Geburtstag"
+					type="date" />
+				<br />
+				<h:commandButton action="#{inputBean.save}" value="speichern" />
+			</h:form>
+
+			<h:outputText value="#{inputBean.value}" rendered="#{inputBean.date != null}" />
+
+		</ui:define>
+	</ui:composition>
+
+</f:view>
