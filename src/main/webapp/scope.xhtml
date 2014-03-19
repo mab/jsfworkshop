@@ -1,0 +1,29 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:workshop="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+		
+			<h:outputText value="Application Scope: #{appScopeBean.date}" />
+			<br />
+
+			<h:outputText value="Session Scope #{sesScopeBean.date}" />
+			<br />
+
+			<h:outputText value="Request Scope" />
+			<h:form>
+				<h:outputText id="req_time" value="#{reqScopeBean.date}" />
+				<p:poll interval="1" update="req_time"/>
+			</h:form>
+			
+			<h:form><h:commandButton value="Session töten" action="#{sesScopeBean.reset}"/></h:form>
+
+
+		</ui:define>
+	</ui:composition>
+
+</f:view>
