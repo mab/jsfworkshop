@@ -9,24 +9,46 @@
 
 	<h:head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+		
 		<title>JSF Workshop</title>
 		<h:outputStylesheet library="css" name="myStyleSheet.css" />
 	</h:head>
 
 	
 	<h:body>
-		<div>
-		
-		<h1>jsf workshop</h1>
-		<hr />	
-	
-		<ui:insert name="content">
-		</ui:insert>
-	
-		<hr />
-		<h:outputText value="&#169; 2014 Saxonia Systems AG" />
+		<div class="container">
+
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<a class="navbar-brand" href="start.jsf">JSF Workshop</a>
+					</div>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="customComponent.jsf">Custom Component</a></li>
+						<li><a href="scope.jsf">Scoping</a></li>
+					</ul>
+
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+
+			<ui:insert name="content">
+			</ui:insert>
+
+			<hr />
+			<h:outputText value="&#169; 2014 Saxonia Systems AG" />
 
 		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="js/bootstrap.min.js"></script>
 	</h:body>
 
 
