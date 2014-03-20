@@ -8,7 +8,9 @@
 		<ui:define name="content">
 
 			<h:form>
-				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" severity="INFO" />  
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" severity="info" />  
+
+				<h2>Validation example</h2>
 
 				<h:panelGrid columns="3">
 					<p:outputLabel value="Firstname: " for="firstname" />
@@ -26,6 +28,20 @@
 					<h:commandButton action="#{personBean.save}" value="save" />
 
 				</h:panelGrid>
+				
+				<br />
+				
+				<p:dataTable var="person" value="#{personBean.persons}">
+					<p:column headerText="Firstname">
+						<h:outputText value="#{person.firstname}" />
+					</p:column>
+					<p:column headerText="Lastname">
+						<h:outputText value="#{person.lastname}" />
+					</p:column>
+					<p:column headerText="Birthday">
+						<h:outputText value="#{person.birthday}" />
+					</p:column>
+				</p:dataTable>	
 			</h:form>
 
 		</ui:define>
