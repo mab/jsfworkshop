@@ -1,0 +1,34 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+
+			<h:form>
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" severity="INFO" />  
+
+				<h:panelGrid columns="3">
+					<p:outputLabel value="Firstname: " for="firstname" />
+					<p:inputText id="firstname" value="#{personBean.person.firstname}" />
+					<p:message for="firstname" />
+
+					<p:outputLabel value="Lastname: " for="lastname" />
+					<p:inputText id="lastname" value="#{personBean.person.lastname}" />
+					<p:message for="lastname" />
+
+					<p:outputLabel value="Birthday: " for="birthday" />
+					<p:calendar id="birthday" value="#{personBean.person.birthday}" />
+					<p:message for="birthday" />
+					
+					<h:commandButton action="#{personBean.save}" value="save" />
+
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</f:view>
