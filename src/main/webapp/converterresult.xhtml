@@ -1,0 +1,16 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+
+			<h2>Custom converter example: result</h2>
+			
+			<h:outputText value="Bookmark URL: #{uRLBean.bookmarkUrl}" />
+
+		</ui:define>
+	</ui:composition>
+</f:view>

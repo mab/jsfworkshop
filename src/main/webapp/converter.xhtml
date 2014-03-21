@@ -1,0 +1,32 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+
+			<h2>Custom converter example</h2>
+
+			<h:form>
+
+				<h:panelGrid columns="3">
+					<p>Enter your bookmark URL :</p>
+
+					<h:inputText id="bookmarkURL" value="#{uRLBean.bookmarkUrl}" size="20"
+						required="true" label="Bookmark URL">
+						<f:converter converterId="de.saxsys.URLConverter" />
+					</h:inputText>
+
+					<h:message for="bookmarkURL" style="color:red" />
+
+				</h:panelGrid>
+
+				<h:commandButton value="Submit" action="converterresult" />
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</f:view>

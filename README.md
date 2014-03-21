@@ -11,3 +11,4 @@ Following topics are discussed:
   * static navigation with bootstrap, changing template to bootstrap
   * validation and messages
   * encoding  
+  * custom converter
