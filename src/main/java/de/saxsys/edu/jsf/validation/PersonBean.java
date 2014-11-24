@@ -48,4 +48,8 @@ public class PersonBean implements Serializable {
 
 	}
 	
+	public Gender[] getGenders() {
+		return Gender.values();
+	}
+	
 }

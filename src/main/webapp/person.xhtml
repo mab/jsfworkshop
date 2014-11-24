@@ -10,7 +10,8 @@
 			<h:form>
 				<h2>Validation example</h2>
 
-				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" severity="info" /> 
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" severity="info" />
 
 				<h:panelGrid columns="3">
 					<p:outputLabel value="Firstname: " for="firstname" />
@@ -25,23 +26,38 @@
 					<p:calendar id="birthday" value="#{personBean.person.birthday}" />
 					<p:message for="birthday" />
 					
-					<h:commandButton action="#{personBean.save}" value="save" />
-
+					<p:outputLabel value="Gender: " for="gender" />
+					<p:selectOneMenu id="gender" value="#{personBean.person.gender}">
+						<f:selectItems value="#{personBean.genders}" var="gender" itemValue="#{gender}" itemLabel="#{gender.label}"/>
+					</p:selectOneMenu>
+					<p:message for="gender" />
+					
 				</h:panelGrid>
-				
-				<br />
-				
+
+				<h:commandButton action="#{personBean.save}" value="save" />
+
+				<br /><br />
+
 				<p:dataTable var="person" value="#{personBean.persons}">
-					<p:column headerText="Firstname">
+					<p:column headerText="Firstname" sortBy="#{person.firstname}">
 						<h:outputText value="#{person.firstname}" />
 					</p:column>
 					<p:column headerText="Lastname">
 						<h:outputText value="#{person.lastname}" />
 					</p:column>
-					<p:column headerText="Birthday">
-						<h:outputText value="#{person.birthday}" />
+					<p:column headerText="Name"
+						sortBy="#{person.lastname}, #{person.firstname}">
+						<h:outputText value="#{person.firstname} #{person.lastname}" />
 					</p:column>
-				</p:dataTable>	
+					<p:column headerText="Birthday">
+						<h:outputText value="#{person.birthday}">
+							 <f:convertDateTime pattern="dd.MM.yyyy" />
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Gender">
+						<h:outputText value="#{person.gender.label}" />
+					</p:column>
+				</p:dataTable>
 			</h:form>
 
 		</ui:define>

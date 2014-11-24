@@ -24,6 +24,8 @@ public class Person implements Serializable {
 	@NotNull
 	@Past
 	private Date birthday;
+	
+	private Gender gender;
 
 	public String getFirstname() {
 		return firstname;
@@ -51,6 +53,14 @@ public class Person implements Serializable {
 
 	public String getName() {
 		return firstname + " " + lastname;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 	
 }
