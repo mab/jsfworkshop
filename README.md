@@ -12,3 +12,11 @@ Following topics are discussed:
   * validation and messages
   * encoding  
   * custom converter
+
+## New topics
+
+I continue using this project for prototyping small features. 
+
+Following topics are added:
+
+  * Dynamic Form: A form which is extendable by the user. Simple Plus Button to add a new Input Field. (with Ajax)
