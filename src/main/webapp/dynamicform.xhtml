@@ -1,0 +1,42 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/resources/templates/template.xhtml">
+		<ui:define name="content">
+
+			<h:form>
+				<h2>Dynamicform example</h2>
+
+				<ui:repeat value="#{dynamicformBean.values}" var="value">
+					<p:outputLabel for="mask" value="Mask:" />
+					<p:calendar id="mask" value="#{value.date}" pattern="dd.MM.yyyy"
+						mask="true">
+						<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
+					</p:calendar>
+					<br />
+				</ui:repeat>
+
+				<p:commandButton value="Extend" action="#{dynamicformBean.extend()}"
+					disabled="#{!dynamicformBean.extendable}" ajax="false" />
+				<p:commandButton action="#{dynamicformBean.submit}" value="Save"
+					ajax="false" />
+
+			</h:form>
+
+			<br /><br />
+
+			<p:dataTable var="date" value="#{dynamicformBean.savedValues}">
+				<p:column headerText="Date">
+					<h:outputText value="#{date.date}">
+						<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+
+		</ui:define>
+	</ui:composition>
+
+</f:view>
