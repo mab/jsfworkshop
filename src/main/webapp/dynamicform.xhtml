@@ -10,23 +10,33 @@
 			<h:form>
 				<h2>Dynamicform example</h2>
 
-				<ui:repeat value="#{dynamicformBean.values}" var="value">
-					<p:outputLabel for="mask" value="Mask:" />
-					<p:calendar id="mask" value="#{value.date}" pattern="dd.MM.yyyy"
-						mask="true">
-						<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
-					</p:calendar>
-					<br />
-				</ui:repeat>
+				<!-- Field is just to test, that the ajax feature of the dynamic field does not influence the validator. -->
+				<p:outputLabel for="reqField" value="Required Field" />
+				<p:inputText id="reqField" required="true" />
+				<br />
 
-				<p:commandButton value="Extend" action="#{dynamicformBean.extend()}"
-					disabled="#{!dynamicformBean.extendable}" ajax="false" />
+				<h:panelGrid columns="2" id="datesGrid">
+					<ui:repeat value="#{dynamicformBean.values}" var="value">
+						<tr>
+							<td><p:outputLabel for="mask" value="Mask:" /></td>
+							<td><p:calendar id="mask" value="#{value.date}"
+									pattern="dd.MM.yyyy" mask="true">
+									<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
+								</p:calendar></td>
+						</tr>
+					</ui:repeat>
+				</h:panelGrid>
+
+				<p:commandButton value="Extend"
+					actionListener="#{dynamicformBean.extend}" update="@this datesGrid"
+					process="@this datesGrid" disabled="#{!dynamicformBean.extendable}" />
 				<p:commandButton action="#{dynamicformBean.submit}" value="Save"
 					ajax="false" />
 
 			</h:form>
 
-			<br /><br />
+			<br />
+			<br />
 
 			<p:dataTable var="date" value="#{dynamicformBean.savedValues}">
 				<p:column headerText="Date">

@@ -28,6 +28,7 @@ public class DynamicformBean implements Serializable {
         // save values in database
     	savedValues.clear();
     	savedValues.addAll(values);
+    	init();
     }
 
     public void extend() {
